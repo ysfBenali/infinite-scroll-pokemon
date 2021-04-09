@@ -1,6 +1,7 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import PokemonList from "./components/pokemon/PokemonList";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { Navbar } from "./components/styles";
 import "./App.css";
 
@@ -11,6 +12,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Navbar />
       <PokemonList />
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
