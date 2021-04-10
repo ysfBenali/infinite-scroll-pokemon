@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { API_IMG_baseURL } from "../../helpers/utils/constants";
 import { CardContainer, CardIndex, Avatar } from "../styles";
 
-const PokemonCard = ({ name, url }) => {
+const PokemonCard = ({ name, url, handleClick }) => {
   const [pokemon, setPokemon] = useState({
     name: "",
     url: "",
@@ -17,7 +17,7 @@ const PokemonCard = ({ name, url }) => {
   }, []);
 
   return (
-    <CardContainer onClick={() => console.log(url)}>
+    <CardContainer onClick={handleClick}>
       <CardIndex>
         <span>#</span>
         {pokemon.index}

@@ -1,6 +1,9 @@
-import PokemonCard from "./PokemonCard";
+import { useState } from "react";
 import { useInfiniteQuery } from "react-query";
+import InfiniteScroll from "react-infinite-scroller";
 import { fetchInfinitePokemons } from "../../api/pokemon";
+import PokemonCard from "./PokemonCard";
+import PokemonModal from "./PokemonModal";
 import { Container } from "../styles";
 
 const PokemonList = () => {
@@ -16,17 +19,49 @@ const PokemonList = () => {
     getNextPageParam: (lastPage) => lastPage.pageParam,
   });
 
+  const [selectedPokemonUrl, setSelectedPokemonUrl] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleClick = (url) => {
+    openModal();
+    setSelectedPokemonUrl(url);
+  };
   return (
-    <Container>
-      {status === "loading" && <p>Loading ...</p>}
-      {status === "error" && <p>Error fetching data</p>}
-      {status === "success" &&
-        data.pages.map((page) =>
-          page.pokemons.map(({ name, url }) => (
-            <PokemonCard key={name} {...{ name, url }} />
-          ))
-        )}
-    </Container>
+    <>
+      <PokemonModal
+        isOpen={modalIsOpen}
+        closeModal={closeModal}
+        url={selectedPokemonUrl}
+      />
+      <InfiniteScroll
+        loadMore={fetchNextPage}
+        hasMore={hasNextPage}
+        loader={<div>Loading ...</div>}
+      >
+        <Container>
+          {status === "loading" && <p>Loading ...</p>}
+          {status === "error" && <p>Error fetching data</p>}
+          {status === "success" &&
+            data.pages.map((page) =>
+              page.pokemons.map(({ name, url }) => (
+                <PokemonCard
+                  key={name}
+                  {...{ name, url }}
+                  handleClick={() => handleClick(url)}
+                />
+              ))
+            )}
+        </Container>
+      </InfiniteScroll>
+    </>
   );
 };
 
