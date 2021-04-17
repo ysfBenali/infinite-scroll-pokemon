@@ -40,6 +40,7 @@ const PokemonList = () => {
         isOpen={modalIsOpen}
         closeModal={closeModal}
         url={selectedPokemonUrl}
+        pokemonId={selectedPokemonUrl.split("/")[selectedPokemonUrl.split("/").length - 2]}
       />
       <InfiniteScroll
         loadMore={fetchNextPage}

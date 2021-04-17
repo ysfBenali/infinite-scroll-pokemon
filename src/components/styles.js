@@ -29,6 +29,9 @@ export const CardContainer = styled.div`
     transform: scale(1.04);
     transition: transform 0.15s ease-in;
   }
+  & p::first-letter {
+    text-transform: uppercase;
+  } 
 `;
 
 export const CardIndex = styled.span`
@@ -95,7 +98,9 @@ export const PokeName = styled.p`
   line-height: 1;
   font-weight: bold;
   letter-spacing: 0.01em;
-
+  &::first-letter {
+    text-transform: uppercase;
+  } 
   @media (max-width: 480px)  {
     position: relative;
     bottom:0;
@@ -165,6 +170,9 @@ export const Intro = styled.div`
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 0.65rem;
+  &::first-letter {
+    text-transform: uppercase;
+  } 
 `;
 
 export const CloseModal = styled.span`
