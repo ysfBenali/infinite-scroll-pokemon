@@ -1,15 +1,41 @@
 import { useQuery } from "react-query";
 import ReactModal from "react-modal";
+import { RiCloseCircleFill } from "react-icons/ri";
+import {
+  ModalCardWrapper,
+  LeftCard,
+  RigthCard,
+  Img,
+  TopCard,
+  BottomCard,
+  PokeName,
+  PokeId,
+  Tuple,
+  Category,
+  Value,
+  Title,
+  Intro,
+  CloseModal,
+} from "../styles";
 import { fetchPokemonItem } from "../../api/pokemon";
 
 const customStyles = {
   content: {
-    top: "45%",
+    display: "fixed",
+    position: "relative",
+    top: "50%",
     left: "50%",
-    height: "50%",
-    maxWidth: "calc(100% - 80px)",
-    maxHeight: "calc(100% - 80px)",
-    marginRight: "-40%",
+    right: "auto",
+    bottom: "auto",
+    // height: '400px',
+    width: "70%",
+    // height: '100%',
+    overflow: "auto",
+    display: "grid",
+    justifyItems: "center",
+    alignItems: "center",
+    maxHeight: "calc(100% - 5rem)",
+    maxWidth: "calc(100% - 2rem)",
     transform: "translate(-50%, -50%)",
   },
 };
@@ -22,10 +48,55 @@ const PokemonModal = ({ isOpen, closeModal, url }) => {
 
   return isOpen ? (
     <ReactModal {...{ isOpen, closeModal, url }} style={customStyles}>
-      <button onClick={closeModal}>Close Modal</button>
-      <p>{url}</p>
+      {isSuccess && (
+        <>
+          <ModalCardWrapper>
+            <LeftCard>
+              <PokeId>#12</PokeId>
+              <Img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" />
+              <PokeName>Name</PokeName>
+            </LeftCard>
+            <TopCard>
+              <Title>Bio</Title>
+              <Intro>
+                Lorem ipsum dolor sithgjhgjhgjgjghjhg amet consectetur
+                adipisicing elit.
+              </Intro>
+              <Tuple>
+                <Category>Category</Category>
+                <Value>Value</Value>
+              </Tuple>
+              <Tuple>
+                <Category>Category</Category>
+                <Value>Value</Value>
+              </Tuple>
+              <Tuple>
+                <Category>Category</Category>
+                <Value>Value</Value>
+              </Tuple>
+            </TopCard>
+            <BottomCard>
+              <Title>Stats</Title>
+              <Tuple>
+                <Category>Category</Category>
+                <Value>Value</Value>
+              </Tuple>
+              <Tuple>
+                <Category>Category</Category>
+                <Value>Value</Value>
+              </Tuple>
+              <Tuple>
+                <Category>Category</Category>
+                <Value>Value</Value>
+              </Tuple>
+            </BottomCard>
+            <CloseModal onClick={closeModal}>
+              <RiCloseCircleFill />
+            </CloseModal>
+          </ModalCardWrapper>
+        </>
+      )}
       {isLoading && <p>Loading ...</p>}
-      {isSuccess && <p>{data.height}</p>}
       {isError && <p>Error</p>}
     </ReactModal>
   ) : null;
