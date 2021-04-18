@@ -5,8 +5,6 @@ import { API_IMG_baseURL } from "../../helpers/utils/constants";
 import getPokemonIntro from "../../helpers/getPokemonIntro";
 import {
   ModalCardWrapper,
-  LeftCard,
-  RigthCard,
   Img,
   TopCard,
   BottomCard,
@@ -18,6 +16,7 @@ import {
   Title,
   Intro,
   CloseModal,
+  ImgContainer
 } from "../styles";
 import { fetchPokemonItem, fetchPokemonSpecies } from "../../api/pokemon";
 
@@ -54,15 +53,14 @@ const PokemonModal = ({ isOpen, closeModal, url, pokemonId }) => {
   if(dataS)getPokemonIntro(dataP, dataS);
 
   return isOpen ? (
-    <ReactModal {...{ isOpen, closeModal, url }} style={customStyles}>
+    <ReactModal {...{ isOpen, closeModal, url }} style={customStyles} appElement={document.getElementById('root')}>
       {isSuccess && (
         <>
           <ModalCardWrapper>
-            <LeftCard>
-              <PokeId>#{dataP.id}</PokeId>
+            <ImgContainer>
+            <PokeId>#{dataP.id}</PokeId>
               <Img src={`${API_IMG_baseURL}/${dataP.id}.svg`} />
-              <PokeName>{dataP.name}</PokeName>
-            </LeftCard>
+              <PokeName>{dataP.name}</PokeName></ImgContainer>
             <TopCard>
               <Title>Bio</Title>
               <Intro>
@@ -78,7 +76,7 @@ const PokemonModal = ({ isOpen, closeModal, url, pokemonId }) => {
               </Tuple>
               <Tuple>
                 <Category>Weight:</Category>
-                <Value>{dataP.weight / 10}kg</Value>
+                <Value>{dataP.weight / 10}m</Value>
               </Tuple>
               <Tuple>
                 <Category>Abilities:</Category>

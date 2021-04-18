@@ -31,7 +31,7 @@ export const CardContainer = styled.div`
   }
   & p::first-letter {
     text-transform: uppercase;
-  } 
+  }
 `;
 
 export const CardIndex = styled.span`
@@ -55,7 +55,7 @@ export const ModalCardWrapper = styled.div`
   /* background: black; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(auto-fit, minmax(100px, .5fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 0.5fr));
   gap: 1px 10px;
   width: 100%;
   grid-template-areas:
@@ -63,8 +63,8 @@ export const ModalCardWrapper = styled.div`
     "avatar bottom";
   align-items: center;
   justify-content: center;
-  
-  @media (max-width: 480px)  {
+
+  @media (max-width: 480px) {
     grid-template-rows: 200px;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -76,64 +76,57 @@ export const ModalCardWrapper = styled.div`
   }
 `;
 
-export const LeftCard = styled.div`
-  display: flex;
-  flex-direction: column;
+export const ImgContainer = styled.div`
   grid-area: avatar;
   background: linear-gradient(#ff6966, #ffff);
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 450px;
-  max-height: 100%;  
-  @media (max-width: 480px)  {
-    flex-direction: column;
-    max-height: calc(100% - 80px),
-  }
+  max-height: 95%;
 `;
 
-export const PokeName = styled.p`
-  position: absolute;
-  bottom: .5rem;
+export const PokeName = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.2rem;
   line-height: 1;
   font-weight: bold;
   letter-spacing: 0.01em;
   &::first-letter {
     text-transform: uppercase;
-  } 
-  @media (max-width: 480px)  {
-    position: relative;
-    bottom:0;
   }
 `;
 
-export const PokeId = styled.p`
-  position: absolute;
+export const PokeId = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0.6rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
   line-height: 1;
   font-weight: bold;
   letter-spacing: 0.1em;
   color: #fc4230;
-  @media (max-width: 480px)  {
-    position: relative;
-    font-size: 1.6rem;
-    margin-top: 0.5em;
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
   }
 `;
 
 export const Img = styled.img`
   max-width: 100%;
   max-height: 110px;
-  @media (max-width: 480px)  {
-    position: relative;
-  }
 `;
 
 export const TopCard = styled.div`
   /* background-color: red; */
   grid-area: top;
-  font-size: 5px;  
+  font-size: 5px;
 `;
 
 export const Tuple = styled.div`
@@ -162,7 +155,7 @@ export const Title = styled.p`
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.25rem;
-  margin-top: .2rem;
+  margin-top: 0.2rem;
   margin-bottom: 0.5rem;
 `;
 
@@ -172,7 +165,7 @@ export const Intro = styled.div`
   font-size: 0.65rem;
   &::first-letter {
     text-transform: uppercase;
-  } 
+  }
 `;
 
 export const CloseModal = styled.span`
@@ -180,12 +173,12 @@ export const CloseModal = styled.span`
   cursor: pointer;
   color: #dc143c;
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   background-color: #ffff;
   width: 2rem;
   height: 2rem;
-  border-radius:50%;
+  border-radius: 50%;
   top: 10px;
   right: 10px;
   font-size: 2.25rem;
@@ -193,7 +186,7 @@ export const CloseModal = styled.span`
   font-weight: 900;
   user-select: none;
   outline: none;
-  &:hover{
+  &:hover {
     transform: scale(1.125);
   }
 `;
