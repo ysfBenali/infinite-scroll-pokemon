@@ -17,7 +17,7 @@ const PokemonCard = ({ name, url, handleClick }) => {
   }, []);
 
   return (
-    <CardContainer onClick={handleClick}>
+    <CardContainer onClick={handleClick} data-testid='pokemonId'>
       <CardIndex>
         <span>#</span>
         {pokemon.index}

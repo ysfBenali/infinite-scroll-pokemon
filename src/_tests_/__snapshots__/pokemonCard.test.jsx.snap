@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`match snapshot 1`] = `
+<div
+  className="sc-dkPtyc cdXur"
+  data-testid="pokemonId"
+>
+  <span
+    className="sc-hKwCoD jlkegf"
+  >
+    <span>
+      #
+    </span>
+    
+  </span>
+  <img
+    alt=""
+    className="sc-eCImvq erRmYc"
+    src=""
+  />
+  <p>
+    
+  </p>
+</div>
+`;
