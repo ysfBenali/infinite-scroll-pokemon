@@ -98,7 +98,7 @@ const PokemonModal = ({ isOpen, closeModal, url, pokemonId }) => {
                 <Value>{dataP.stats[5].base_stat}</Value>
               </Tuple>
             </BottomCard>
-            <CloseModal onClick={closeModal}>
+            <CloseModal onClick={closeModal} data-testid="closeModal">
               <RiCloseCircleFill />
             </CloseModal>
           </ModalCardWrapper>
