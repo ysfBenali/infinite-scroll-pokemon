@@ -190,3 +190,9 @@ export const CloseModal = styled.span`
     transform: scale(1.125);
   }
 `;
+
+export const SpinnerContainer = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100%;
+`;

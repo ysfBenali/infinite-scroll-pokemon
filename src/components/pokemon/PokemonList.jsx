@@ -4,7 +4,9 @@ import InfiniteScroll from "react-infinite-scroller";
 import { fetchInfinitePokemons } from "../../api/pokemon";
 import PokemonCard from "./PokemonCard";
 import PokemonModal from "./PokemonModal";
+import Loading from "../common/Loading";
 import { Container } from "../styles";
+
 
 const PokemonList = () => {
   const {
@@ -45,10 +47,10 @@ const PokemonList = () => {
       <InfiniteScroll
         loadMore={fetchNextPage}
         hasMore={hasNextPage}
-        loader={<div>Loading ...</div>}
+        loader={<Loading/>}
       >
         <Container>
-          {status === "loading" && <p>Loading ...</p>}
+          {status === "loading" && <Loading/>}
           {status === "error" && <p>Error fetching data</p>}
           {status === "success" &&
             data.pages.map((page) =>

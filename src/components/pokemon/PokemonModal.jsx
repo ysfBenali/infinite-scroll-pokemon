@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import ReactModal from "react-modal";
+import Loading from "../common/Loading";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { API_IMG_baseURL } from "../../helpers/utils/constants";
 import getPokemonIntro from "../../helpers/getPokemonIntro";
@@ -104,7 +105,7 @@ const PokemonModal = ({ isOpen, closeModal, url, pokemonId }) => {
           </ModalCardWrapper>
         </>
       )}
-      {isLoading && <p>Loading ...</p>}
+      {isLoading && <Loading/>}
       {isError && <p>Error</p>}
     </ReactModal>
   ) : null;
