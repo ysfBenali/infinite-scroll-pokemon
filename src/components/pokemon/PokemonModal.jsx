@@ -64,13 +64,11 @@ const PokemonModal = ({ isOpen, closeModal, url, pokemonId }) => {
               <PokeName>{dataP.name}</PokeName></ImgContainer>
             <TopCard>
               <Title>Bio</Title>
-              <Intro>
                 {dataS ? (
                   <Intro>
                     {getPokemonIntro(dataP, dataS)}
                   </Intro>
                 ) : null}
-              </Intro>
               <Tuple>
                 <Category>Height:</Category>
                 <Value>{dataP.height / 10}m</Value>

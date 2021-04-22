@@ -1,10 +1,9 @@
 import axios from "axios";
 import axiosInstance from "../api/axios";
-import { API_SPECIES_baseURL } from "../helpers/utils/constants";
 
 export const fetchInfinitePokemons = async ({ pageParam = 1 }) => {
   const { data } = await axiosInstance.get(
-    `?limit=20&offset=${(pageParam - 1) * 20}`
+    `pokemon?limit=20&offset=${(pageParam - 1) * 20}`
   );
   const { results } = data;
   console.log(pageParam);
@@ -18,8 +17,9 @@ export const fetchPokemonItem = async (url) => {
 };
 
 export const fetchPokemonSpecies = async (id) => {
-  const { data } = await axios.get(
-    `${API_SPECIES_baseURL}/${id}`
-  );
-  return data;
+  if (id) {
+    const { data } = await axiosInstance.get(`pokemon-species/${id}`);
+    return data;
+  }
+  return null;
 };

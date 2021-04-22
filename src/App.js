@@ -10,7 +10,9 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Navbar />
+      <Navbar>
+        <img src="pokemon-logo.png" />
+      </Navbar>
       <PokemonList />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

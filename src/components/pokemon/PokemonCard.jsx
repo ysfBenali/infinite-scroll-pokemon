@@ -7,7 +7,7 @@ const PokemonCard = ({ name, url, handleClick }) => {
     name: "",
     url: "",
     index: "",
-    imageUrl: "",
+    imageUrl: "pokeball.png",
   });
 
   useEffect(() => {

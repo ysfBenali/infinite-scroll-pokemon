@@ -3,9 +3,19 @@ import styled from "styled-components";
 export const Navbar = styled.header`
   height: 3.125rem;
   background-color: #ef5350;
+  padding: .25em .5em;
+  img{
+    height: 100%;
+    vertical-align: middle;
+  }
 `;
 
 export const Container = styled.div`
+  /* 
+  #### its also working with grid :) ####
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12rem); 
+  */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -17,7 +27,7 @@ export const CardContainer = styled.div`
   position: relative;
   cursor: pointer;
   width: 9rem auto;
-  margin: 5px;
+  margin: 4px;
   padding: 2rem;
   border-radius: 10px;
   border-top: 0.5px solid #ef5350;
@@ -97,9 +107,7 @@ export const PokeName = styled.div`
   line-height: 1;
   font-weight: bold;
   letter-spacing: 0.01em;
-  &::first-letter {
-    text-transform: uppercase;
-  }
+  text-transform: capitalize;
 `;
 
 export const PokeId = styled.div`
@@ -120,7 +128,10 @@ export const PokeId = styled.div`
 
 export const Img = styled.img`
   max-width: 100%;
-  max-height: 110px;
+  max-height: 120px;
+  @media (max-width: 480px) {
+    max-height: 90px;
+  }
 `;
 
 export const TopCard = styled.div`
@@ -165,6 +176,13 @@ export const Intro = styled.div`
   font-size: 0.65rem;
   &::first-letter {
     text-transform: uppercase;
+  }
+  @media (min-width: 480px) {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
   }
 `;
 

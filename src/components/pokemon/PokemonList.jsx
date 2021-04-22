@@ -47,7 +47,7 @@ const PokemonList = () => {
       <InfiniteScroll
         loadMore={fetchNextPage}
         hasMore={hasNextPage}
-        loader={<Loading/>}
+        loader={<Loading key={0}/>}
       >
         <Container>
           {status === "loading" && <Loading/>}
